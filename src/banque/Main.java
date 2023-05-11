@@ -1,17 +1,18 @@
 package banque;
 
+import java.util.Scanner;
+
 public class Main {
 
 	public static void main(String[] args) {
-		// afficher un message de bienvenue
-		System.out.println("Bienvenue à la GBA, que souhaitez-vous faire ?");
 
-		// créer un objet Comptecourant
+		// créer un objet Compte courant
 		CompteCourant svin = new CompteCourant("Svin", 12000);
-		svin.afficherSolde();
-		svin.deposerArgent(300);
-		svin.retirerArgent(12700);
 
+		// récupérer des informations de la console
+		Scanner scanner = new Scanner(System.in);
+
+		svin.bienvenue();
 	}
 
-}
+}// fin de la classe Main
