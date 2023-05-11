@@ -46,6 +46,7 @@ public class CompteCourant {
 		}
 		default:
 			System.out.println("Choix incorrect");
+			bienvenue();
 			break;
 		}
 
@@ -66,6 +67,7 @@ public class CompteCourant {
 		}
 		default:
 			System.out.println("Choix incorrect");
+			nouvelleOp();
 			break;
 		}
 
