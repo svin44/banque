@@ -22,10 +22,8 @@ public class CompteCourant {
 	Scanner sc = new Scanner(System.in);
 
 	// message menu principal
-	// utilisé également après chaque opération pour revenir automatiquement au menu
-	// principal
 	public void bienvenue() {
-		System.out.println("Bienvenue à la GBA, veuillez préciser l'opération souhaitée:");
+		System.out.println("Bienvenue à la Banque Java, veuillez préciser l'opération souhaitée:");
 		System.out.println("1- consulter votre solde");
 		System.out.println("2- Déposer de l'argent");
 		System.out.println("3- Retirer de l'argent");
@@ -53,10 +51,31 @@ public class CompteCourant {
 
 	}
 
+	// nouvelle opération ?
+	public void nouvelleOp() {
+		System.out.println("Souhaitez-vous effectuer une nouvelle opération ? Oui: tapez 1- Non: tapez 2");
+		int nouvOp = sc.nextInt();
+		switch (nouvOp) {
+		case 1: {
+			bienvenue();
+			break;
+		}
+		case 2: {
+			System.out.println("Bonne journée et à bientôt dans nos Banques Java");
+			break;
+		}
+		default:
+			System.out.println("Choix incorrect");
+			break;
+		}
+
+	}
+
 	// afficher le solde du compte courant
 	public void afficherSolde() {
 		System.out.println("L'argent disponible sur votre compte est de " + this.solde);
-		bienvenue();
+		System.out.println("");
+		nouvelleOp();
 	}
 
 	// fonction pour le dépot d'argent
@@ -67,7 +86,8 @@ public class CompteCourant {
 		this.solde += montant;
 		System.out.println("Vous venez d'ajouter " + montant + " euros sur votre compte.");
 		System.out.println("Votre solde est désormais de " + this.solde + " euros");
-		bienvenue();
+		System.out.println("");
+		nouvelleOp();
 	}
 
 	// fonction pour retirer de l'argent
@@ -78,6 +98,7 @@ public class CompteCourant {
 			this.solde -= montant;
 			System.out.println("Vous venez de retirer " + montant + " euros sur votre compte. Il vous reste "
 					+ this.solde + "euros.");
+			System.out.println("");
 		}
 		// si solde inférieur au montant retiré
 		else {
@@ -85,12 +106,14 @@ public class CompteCourant {
 				this.solde -= montant;
 				System.out.println("Vous venez de retirer " + montant + " euros sur votre compte. Il vous reste "
 						+ this.solde + "euros. Attention, vous êtes à découvert");
+				System.out.println("");
 			} else {
 				System.out.println("Opération impossible, vous n'avez pas assez d'argent sur votre compte");
+				System.out.println("");
 			}
 		}
 
-		bienvenue();
+		nouvelleOp();
 	}
 
 }// fin de la classe
